@@ -6,6 +6,11 @@ module.exports = {
     filename: "index.js",
     path: path.join(__dirname, "/dist"),
   },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   module: {
     rules: [
       {
@@ -17,5 +22,5 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-  }
+  },
 };

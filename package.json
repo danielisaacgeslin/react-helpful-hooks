@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A helpful set of react hooks",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "start": "start-storybook -p 3000 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
