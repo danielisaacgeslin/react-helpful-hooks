@@ -15,8 +15,18 @@ yarn add react-helpful-hooks
 ## Hooks
 
 #### useAsyncCallback
-> This hooks is meant to simplify async operations inside components
+> This hooks is meant to simplify async operations inside components.
+In this example "onClick" is the callback function that triggers the async operation and "asyncFunction" is the original async function from which "isLoading", "error" and "response" get their data.
 ##### Example
-```typescript
-const [onClick, isLoading, error, response] = useAsyncCallback<Error>(asyncFunction);
+```tsx
+const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(asyncFunction);
+
+<button
+  onClick={onClick}
+  disabled={isLoading}
+>
+  click me
+</button>
+{response && <p>response: {response}</p>}
+{error && <p>error: {error}</p>}
 ```
