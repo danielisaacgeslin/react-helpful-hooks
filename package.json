@@ -1,6 +1,6 @@
 {
   "name": "react-helpful-hooks",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A helpful set of react hooks",
   "main": "index.js",
   "private": false,
@@ -11,8 +11,7 @@
     "build": "rm -rf dist && mkdir dist && cp ./package.json dist && webpack --mode production",
     "prettier": "prettier",
     "prettier:check": "npm run prettier -- --list-different \"./**/*.{js, ts,tsx,html,scss}\"",
-    "format": "npm run prettier -- --write \"./**/*.{js,ts,tsx,html,scss}\"",
-    "publish": "yarn build && npm publish"
+    "format": "npm run prettier -- --write \"./**/*.{js,ts,tsx,html,scss}\""
   },
   "repository": {
     "type": "git",
