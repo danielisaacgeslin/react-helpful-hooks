@@ -7,20 +7,23 @@ module.exports = {
     path: path.join(__dirname, "/dist"),
   },
   optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
+         splitChunks: {
+           chunks: 'all',
+         },
+       },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
         exclude: /node_modules/,
+        options: {
+          transpileOnly: false
+        }
       },
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-  },
+  }
 };
