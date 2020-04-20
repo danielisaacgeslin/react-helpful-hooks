@@ -1,22 +1,22 @@
-#React Helpful Hooks
+# React Helpful Hooks
 > A set of helpful react.js hooks
 
-##Install
+## Install
 
-#####npm
+##### npm
 ```
 npm install react-helpful-hooks --save
 ```
-#####yarn
+##### yarn
 ```
 yarn add react-helpful-hooks
 ```
 
-##Hooks
+## Hooks
 
-####useAsyncCallback
+#### useAsyncCallback
 > This hooks is meant to simplify async operations inside components
-#####Example
+##### Example
 ```typescript
 const [onClick, isLoading, error, response] = useAsyncCallback<Error>(asyncFunction);
 ```
