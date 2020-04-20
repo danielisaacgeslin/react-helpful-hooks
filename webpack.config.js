@@ -5,12 +5,14 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.join(__dirname, "/dist"),
+    library: 'reactHelpfulHooks',
+    libraryTarget: 'umd'
   },
   optimization: {
-         splitChunks: {
-           chunks: 'all',
-         },
-       },
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   module: {
     rules: [
       {
@@ -18,12 +20,15 @@ module.exports = {
         loader: "ts-loader",
         exclude: /node_modules/,
         options: {
-          transpileOnly: false
-        }
+          transpileOnly: false,
+        },
       },
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+  },
+  externals: {
+    react: 'react'
   }
 };

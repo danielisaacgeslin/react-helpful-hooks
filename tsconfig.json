@@ -2,9 +2,10 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
-    "lib": ["es2015", "dom"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
     "sourceMap": true,
     "declarationDir": "dist",
     "declaration": true
