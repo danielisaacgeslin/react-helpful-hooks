@@ -1,0 +1,30 @@
+{
+  "name": "react-helpful-hooks",
+  "version": "1.0.0",
+  "description": "A helpful set of react hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielisaacgeslin/react-helpful-hooks.git"
+  },
+  "keywords": [
+    "react.js",
+    "hooks"
+  ],
+  "author": "Daniel Isaac Geslin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielisaacgeslin/react-helpful-hooks/issues"
+  },
+  "homepage": "https://github.com/danielisaacgeslin/react-helpful-hooks#readme",
+  "devDependencies": {
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
