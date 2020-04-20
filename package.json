@@ -1,6 +1,6 @@
 {
   "name": "react-helpful-hooks",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A helpful set of react hooks",
   "main": "index.js",
   "private": false,
