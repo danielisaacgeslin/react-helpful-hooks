@@ -30,3 +30,11 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 {response && <p>response: {response}</p>}
 {error && <p>error: {error}</p>}
 ```
+
+## Planned for the future
+* useQueryParamState
+* useStorageState
+* useSafeState // check for unmounts
+* useTimer
+* useTimerMap
+* useStateHistory
