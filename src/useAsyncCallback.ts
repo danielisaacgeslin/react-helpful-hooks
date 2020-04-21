@@ -1,7 +1,13 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>): [() => Promise<void>, boolean, E, T] => {
   const isMounted = useRef(true);
+  useEffect(
+    () => () => {
+      isMounted.current = false;
+    },
+    []
+  );
   const [state, setState] = useState<{
     isLoading: boolean;
     error?: E;
