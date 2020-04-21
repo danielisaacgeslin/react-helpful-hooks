@@ -1,32 +1,32 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, "/src/index.ts"),
+  entry: path.join(__dirname, '/src/index.ts'),
   output: {
-    filename: "index.js",
-    path: path.join(__dirname, "/dist"),
+    filename: 'index.js',
+    path: path.join(__dirname, '/dist'),
     library: 'reactHelpfulHooks',
     libraryTarget: 'umd'
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
-    },
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          transpileOnly: false,
-        },
-      },
-    ],
+          transpileOnly: false
+        }
+      }
+    ]
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js']
   },
   externals: {
     react: 'react'

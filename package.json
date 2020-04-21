@@ -3,15 +3,19 @@
   "version": "1.0.9",
   "description": "A helpful set of react hooks",
   "main": "index.js",
+  "pre-commit": [
+    "prettier:check",
+    "test"
+  ],
   "private": false,
   "scripts": {
     "start": "start-storybook -p 3000 -c .storybook",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --env=jsdom --coverage --forceExit --detectOpenHandles --verbose",
     "webpack": "webpack",
     "build": "rm -rf dist && mkdir dist && cp ./package.json dist && cp ./README.md dist && webpack --mode production",
     "prettier": "prettier",
-    "prettier:check": "npm run prettier -- --list-different \"./**/*.{js, ts,tsx,html,scss}\"",
-    "format": "npm run prettier -- --write \"./**/*.{js,ts,tsx,html,scss}\""
+    "prettier:check": "npm run prettier -- --list-different \"src/**/*.{js,ts,tsx,html,scss}\"",
+    "format": "npm run prettier -- --write \"src/**/*.{js,ts,tsx,html,scss}\""
   },
   "repository": {
     "type": "git",
@@ -39,9 +43,11 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "jest": "^25.4.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
+    "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.1",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",

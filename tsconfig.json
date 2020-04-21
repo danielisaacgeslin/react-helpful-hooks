@@ -10,5 +10,5 @@
     "declarationDir": "dist",
     "declaration": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./src/**/*.spec.ts", "./src/**/*.spec.tsx"]
 }
