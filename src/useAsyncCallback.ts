@@ -1,6 +1,6 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef, useEffect, DependencyList } from 'react';
 
-export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>): [() => Promise<void>, boolean, E, T] => {
+export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>, deps: DependencyList): [() => Promise<void>, boolean, E, T] => {
   const isMounted = useRef(true);
   useEffect(
     () => () => {
@@ -23,6 +23,6 @@ export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>): [() 
     } finally {
       if (isMounted.current) setState(s => ({ ...s, isLoading: false }));
     }
-  }, [fn, isMounted, setState]);
+  }, [isMounted, setState, ...deps]);
   return [runAsync, state.isLoading, state.error as E, state.response as T];
 };

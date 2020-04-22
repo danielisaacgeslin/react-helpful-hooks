@@ -7,7 +7,7 @@ const reject = (err: any) => new Promise((_, r) => setTimeout(() => r(err), 100)
 
 describe('useAsyncCallback', () => {
   it('should initialize values', () => {
-    const { result } = renderHook(() => useAsyncCallback(() => new Promise(() => {})));
+    const { result } = renderHook(() => useAsyncCallback(() => new Promise(() => {}), []));
     const [cb, isLoading, error, response] = result.current;
     expect(typeof cb).toEqual('function');
     expect(isLoading).toEqual(false);
@@ -16,7 +16,7 @@ describe('useAsyncCallback', () => {
   });
 
   it('should change isLoading to true when callback is executed', () => {
-    const { result } = renderHook(() => useAsyncCallback(() => new Promise(() => {})));
+    const { result } = renderHook(() => useAsyncCallback(() => new Promise(() => {}), []));
     const [cb] = result.current;
     act(() => {
       cb();
@@ -27,7 +27,7 @@ describe('useAsyncCallback', () => {
 
   it('should update error value when promise fails', async () => {
     const promiseError = new Error('intentional error');
-    const { result } = renderHook(() => useAsyncCallback(() => Promise.reject(promiseError)));
+    const { result } = renderHook(() => useAsyncCallback(() => Promise.reject(promiseError), []));
     const [cb] = result.current;
     await act(cb);
     const [_, _2, error] = result.current;
@@ -36,7 +36,7 @@ describe('useAsyncCallback', () => {
 
   it('should update result value when promise fails', async () => {
     const promiseRes = 'a result';
-    const { result } = renderHook(() => useAsyncCallback(() => Promise.resolve(promiseRes)));
+    const { result } = renderHook(() => useAsyncCallback(() => Promise.resolve(promiseRes), []));
     const [cb] = result.current;
     await act(cb);
     const [_, _2, _3, res] = result.current;
@@ -44,7 +44,7 @@ describe('useAsyncCallback', () => {
   });
 
   it('should not return new result states when component unmounts', async () => {
-    let { result, unmount } = renderHook(() => useAsyncCallback(() => resolve('a result')));
+    let { result, unmount } = renderHook(() => useAsyncCallback(() => resolve('a result'), []));
     let [cb] = result.current;
     await act(async () => {
       cb();
@@ -55,7 +55,7 @@ describe('useAsyncCallback', () => {
   });
 
   it('should not return new error states when component unmounts', async () => {
-    let { result, unmount } = renderHook(() => useAsyncCallback(() => reject('a result')));
+    let { result, unmount } = renderHook(() => useAsyncCallback(() => reject('a result'), []));
     let [cb] = result.current;
     await act(async () => {
       cb();

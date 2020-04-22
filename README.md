@@ -34,7 +34,7 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 ## Planned for the future
 * useQueryParamState
 * useStorageState
-* useSafeState // check for unmounts
+* useSafeState `check for unmounts`
 * useTimer
 * useTimerMap
 * useStateHistory

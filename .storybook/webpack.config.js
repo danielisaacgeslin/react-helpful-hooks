@@ -10,7 +10,7 @@ module.exports = ({ config }) => {
       {
         loader: require.resolve('awesome-typescript-loader'),
         options: {
-          configFileName: path.join(__dirname, '../tsconfig.json')
+          configFileName: path.join(__dirname, './tsconfig.json')
         }
       },
       { loader: require.resolve('react-docgen-typescript-loader') }
