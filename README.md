@@ -19,7 +19,7 @@ yarn add react-helpful-hooks
 In this example "onClick" is the callback function that triggers the async operation and "asyncFunction" is the original async function from which "isLoading", "error" and "response" get their data.
 ##### Example
 ```tsx
-const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(asyncFunction);
+const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(asyncFunction, deps);
 
 <button
   onClick={onClick}
