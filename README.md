@@ -15,7 +15,7 @@ yarn add react-helpful-hooks
 ## Hooks
 
 #### useAsyncCallback
-> This hooks is meant to simplify async operations inside components.
+> This hook is meant to simplify async operations inside components.
 >
 >In this example:
 > * `onClick` is the callback function that triggers the async operation.
@@ -41,7 +41,7 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 ```
 
 #### useTimer
-> This hooks is to be used as a timer, but also works as a timeout or interval if combined with a useEffect
+> This hook is to be used as a timer, but also works as a timeout or interval if combined with a useEffect
 >
 >In this example:
 > * `timer` is the time elapsed from initialization or the last reset (starting at 0).
