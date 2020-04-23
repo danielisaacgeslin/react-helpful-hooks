@@ -50,11 +50,12 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 > * `reset` sets the timer at 0. If the timer is running, it will keep running. If the timer is paused, it will remain paused.
 > * `interval` is the time interval in milliseconds that will elapse between each tick.
 > * `isRunning` is a boolean that represent the current timer state. Defaults to `true`
+> * `startsRunning` is the initial state for `isRunning`
 >
 > Note: the number given back as `timer` represents the elapsed time plus the spent execution time. This means that an interval of 1000ms will most likely have an elapsed time of more than 1000ms (normally by a few milliseconds)
 ##### Example
 ```tsx
-const { timer, play, pause, reset } = useTimer(interval, isRunning);
+const { timer, play, pause, reset, isRunning } = useTimer(interval, startsRunning);
 ```
 
 ## Planned for the future
