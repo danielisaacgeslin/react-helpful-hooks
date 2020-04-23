@@ -40,10 +40,25 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 {error && <p>error: {error}</p>}
 ```
 
+#### useTimer
+> This hooks is to be used as a timer, but also works as a timeout or interval if combined with a useEffect
+>
+>In this example:
+> * `timer` is the time elapsed from initialization or the last reset (starting at 0).
+> * `play` is a callback to start the timer.
+> * `pause` is a callback to pause the timer.
+> * `reset` sets the timer at 0. If the timer is running, it will keep running. If the timer is paused, it will remain paused.
+> * `interval` is the time interval in milliseconds that will elapse between each tick.
+> * `isRunning` is a boolean that represent the current timer state. Defaults to `true`
+>
+> Note: the number given back as `timer` represents the elapsed time plus the spent execution time. This means that an interval of 1000ms will most likely have an elapsed time of more than 1000ms (normally by a few milliseconds)
+##### Example
+```tsx
+const { timer, play, pause, reset } = useTimer(interval, isRunning);
+```
+
 ## Planned for the future
 * useQueryParamState
 * useStorageState
 * useSafeState `check for unmounts`
-* useTimer
-* useTimerMap
 * useStateHistory
