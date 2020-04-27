@@ -58,6 +58,20 @@ const [onClick, isLoading, error, response] = useAsyncCallback<Error, Response>(
 const { timer, play, pause, reset, isRunning } = useTimer(interval, startsRunning);
 ```
 
+#### useStateHistory
+> This hook uses the same interface as `useState`, but adds the possibility to access the change history
+>
+>In this example:
+> * `state` is the current state, not different as the one from `useState`.
+> * `setState` is the state setter, not different as the one from `useState`.
+> * `history` is the list of state values that was set. It starts from the latest one.
+> * `'initial value'` is the optional initial state value, not different as the one from `useState`.
+> * `limit` is the optional history limit. If you set 2, then you will have a max history array of 2 items. When the limit is rached, the oldest value is discarded
+##### Example
+```tsx
+const [state, setState, history] = useStateHistory<string>('initial state', limit);
+```
+
 ## Planned for the future
 * useQueryParamState
 * useStorageState
