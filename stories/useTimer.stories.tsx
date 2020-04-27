@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { useTimer } from '../src/useTimer';
+import { useTimer } from '../src';
 
 const TestCompo = memo(({ interval, isRunning = true }: { interval: number; isRunning?: boolean }) => {
   const { timer, play, pause, reset } = useTimer(interval, isRunning);
@@ -32,7 +32,7 @@ const TestCompo2 = () => {
   );
 };
 
-storiesOf('useTimer', module).add('timers', () => (
+storiesOf('useTimer', module).add('Timers', () => (
   <div>
     <h4>500 ms</h4>
     <TestCompo interval={500} />

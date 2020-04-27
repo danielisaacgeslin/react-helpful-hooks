@@ -62,4 +62,3 @@ const { timer, play, pause, reset, isRunning } = useTimer(interval, startsRunnin
 * useQueryParamState
 * useStorageState
 * useSafeState `check for unmounts`
-* useStateHistory

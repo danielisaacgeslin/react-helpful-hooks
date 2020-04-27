@@ -1,7 +1,7 @@
 import React, { useState, memo, useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { useAsyncCallback } from '../src/useAsyncCallback';
+import { useAsyncCallback } from '../src';
 
 const TestCompo = memo(({ fail }: { fail?: boolean }) => {
   const [title, setTitle] = useState('');
