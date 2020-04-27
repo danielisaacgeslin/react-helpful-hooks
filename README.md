@@ -66,7 +66,7 @@ const { timer, play, pause, reset, isRunning } = useTimer(interval, startsRunnin
 > * `setState` is the state setter, not different as the one from `useState`.
 > * `history` is the list of state values that was set. It starts from the latest one.
 > * `'initial value'` is the optional initial state value, not different as the one from `useState`.
-> * `limit` is the optional history limit. If you set 2, then you will have a max history array of 2 items. When the limit is rached, the oldest value is discarded
+> * `limit` is the optional history limit. If you set 2, then you will have a max history array of 2 items. When the limit is rached, the oldest value is discarded. Defaults to Infinity.
 ##### Example
 ```tsx
 const [state, setState, history] = useStateHistory<string>('initial state', limit);
