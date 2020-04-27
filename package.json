@@ -1,6 +1,6 @@
 {
   "name": "react-helpful-hooks",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A helpful set of react hooks",
   "main": "index.js",
   "pre-commit": [
@@ -24,7 +24,11 @@
   },
   "keywords": [
     "react.js",
-    "hooks"
+    "hooks",
+    "react",
+    "react-hooks",
+    "utils",
+    "UI"
   ],
   "author": "Daniel Isaac Geslin",
   "license": "MIT",
