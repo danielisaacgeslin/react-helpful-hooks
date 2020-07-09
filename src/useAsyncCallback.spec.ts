@@ -36,9 +36,9 @@ describe('useAsyncCallback', () => {
 
   it('should update result value when promise fails', async () => {
     const promiseRes = 'a result';
-    const { result } = renderHook(() => useAsyncCallback(() => Promise.resolve(promiseRes), []));
+    const { result } = renderHook(() => useAsyncCallback((r: string) => Promise.resolve(r), []));
     const [cb] = result.current;
-    await act(cb);
+    await act(() => cb(promiseRes));
     const [_, _2, _3, res] = result.current;
     expect(res).toEqual(promiseRes);
   });

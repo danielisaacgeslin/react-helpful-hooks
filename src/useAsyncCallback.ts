@@ -1,6 +1,9 @@
 import { useState, useCallback, useRef, useEffect, DependencyList } from 'react';
 
-export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>, deps: DependencyList): [() => Promise<void>, boolean, E, T] => {
+export const useAsyncCallback = <E = any, T = any, F = (args?: any) => Promise<void>>(
+  fn: (args?: any) => Promise<any>,
+  deps: DependencyList
+): [F, boolean, E, T] => {
   const isMounted = useRef(true);
   useEffect(
     () => () => {
@@ -13,16 +16,17 @@ export const useAsyncCallback = <E = any, T = any>(fn: () => Promise<any>, deps:
     error?: E;
     response?: T;
   }>({ isLoading: false, error: undefined, response: undefined });
-  const runAsync = useCallback(async () => {
-    try {
-      setState(s => ({ ...s, isLoading: true }));
-      const r = await fn();
-      if (isMounted.current) setState(s => ({ ...s, error: undefined, response: r }));
-    } catch (error) {
-      if (isMounted.current) setState(s => ({ ...s, error }));
-    } finally {
-      if (isMounted.current) setState(s => ({ ...s, isLoading: false }));
-    }
-  }, [isMounted, setState, ...deps]);
-  return [runAsync, state.isLoading, state.error as E, state.response as T];
+  const runAsync: unknown = useCallback(
+    async (...args: any[]) => {
+      try {
+        setState(s => ({ ...s, isLoading: true }));
+        const r = await fn(...args);
+        if (isMounted.current) setState(s => ({ ...s, error: undefined, response: r, isLoading: false }));
+      } catch (error) {
+        if (isMounted.current) setState(s => ({ ...s, error, isLoading: false }));
+      }
+    },
+    [isMounted, setState, ...deps] // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  return [runAsync as F, state.isLoading, state.error as E, state.response as T];
 };
