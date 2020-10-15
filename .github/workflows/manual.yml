@@ -19,7 +19,7 @@ jobs:
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
     # Runs a single command using the runners shell
-    - run: npm install -g yarn
+    - run: sudo npm install -g yarn
     - run: yarn install
     - run: yarn prettier:check
     - run: yarn test
